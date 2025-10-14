@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Requetelimpia KD — Servicios de Limpieza</title>
-  <meta name="description" content="Requetelimpia KD ofrece servicios de limpieza profesional, desinfección y mantenimiento en toda la República Dominicana.">
+  <title>Requetelimpia KD | Servicios de Limpieza Profesional en República Dominicana</title>
+  <meta name="description" content="Requetelimpia KD ofrece servicios profesionales de limpieza, desinfección y mantenimiento en hogares y empresas en toda la República Dominicana.">
+  <meta name="keywords" content="limpieza profesional, limpieza empresarial, desinfección, mantenimiento, limpieza de alfombras, limpieza de vidrios, República Dominicana, Requetelimpia KD">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -40,11 +41,25 @@
     .cotizador input, .cotizador textarea { width: 90%; max-width: 500px; padding: 12px; margin: 10px 0; border: none; border-radius: 8px; }
     .cotizador button { background-color: #fff; color: #00bcd4; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s; }
     .cotizador button:hover { background-color: #f0f0f0; }
-   
+
     /* NOSOTROS */
     #nosotros { background-color: #ffffff; text-align: center; padding: 80px 20px; }
     #nosotros p { max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 17px; color: #555; }
-   
+
+    /* MVV */
+    .mvv-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 20px 0; }
+    .mvv-item { background: #fff; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 30px 20px; transition: transform 0.3s; text-align: center; }
+    .mvv-item:hover { transform: translateY(-5px); }
+    .mvv-item h3 { color: #00bcd4; margin-top: 15px; margin-bottom: 15px; }
+    .mvv-item p, .mvv-item ul li { font-size: 16px; color: #555; line-height: 1.6; }
+    .mvv-item ul li { margin-bottom: 10px; text-align: left; }
+
+    /* TESTIMONIOS */
+    .testimonial-container { max-width: 1000px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .testimonial { background:#fff; padding:20px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:left; }
+    .testimonial p { font-size:16px; color:#555; line-height:1.6; }
+    .testimonial .author { font-weight:bold; color:#00bcd4; margin-top:10px; }
+
     /* FOOTER */
     footer { background-color: #00bcd4; color: #f0f0f0; text-align: center; padding: 30px 20px; }
     footer a { color: #00bcd4; text-decoration: none; }
@@ -54,14 +69,6 @@
     .whatsapp { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
     .whatsapp img { width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.3); transition: transform 0.3s; }
     .whatsapp img:hover { transform: scale(1.1); }
-
-    /* MISIÓN, VISIÓN Y VALORES */
-    .mvv-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 20px 0; }
-    .mvv-item { background: #fff; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 30px 20px; transition: transform 0.3s; text-align: center; }
-    .mvv-item:hover { transform: translateY(-5px); }
-    .mvv-item h3 { color: #00bcd4; margin-top: 15px; margin-bottom: 15px; }
-    .mvv-item p, .mvv-item ul li { font-size: 16px; color: #555; line-height: 1.6; }
-    .mvv-item ul li { margin-bottom: 10px; text-align: left; }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
@@ -86,7 +93,8 @@
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#cotizacion">Cotización</a></li>
         <li><a href="#nosotros">Sobre nosotros</a></li>
-        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#mvv">Misión, Visión y Valores</a></li>
+        <li><a href="#testimonios">Clientes</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -113,15 +121,60 @@
       <div class="servicio"><img src="img/limpieza6.jpeg" alt="Limpieza de Vidrios y Fachadas"><h3>Limpieza de Vidrios y Fachadas</h3><p>Limpieza profesional de ventanas, vitrinas y fachadas exteriores.</p></div>
     </div>
   </section>
-  
+
   <!-- NOSOTROS -->
   <section id="nosotros">
     <h2>Sobre Nosotros</h2>
     <p>En <strong>Requetelimpia KD</strong> somos una empresa dominicana dedicada a brindar soluciones integrales de limpieza y mantenimiento. 
     Nos destacamos por nuestro compromiso con la calidad, la puntualidad y el respeto por cada espacio que atendemos. 
     Nuestro objetivo es crear ambientes limpios, saludables y seguros, utilizando productos ecológicos y personal altamente capacitado.</p>
-  
-    <!-- COTIZACIÓN -->
+  </section>
+
+  <!-- MISIÓN, VISIÓN Y VALORES -->
+  <section id="mvv">
+    <h2>Misión, Visión y Valores</h2>
+    <div class="mvv-container">
+      <div class="mvv-item">
+        <h3>Misión</h3>
+        <p>Ofrecer servicios de limpieza y desinfección de alta calidad, garantizando ambientes seguros y saludables mediante un equipo profesional comprometido.</p>
+      </div>
+      <div class="mvv-item">
+        <h3>Visión</h3>
+        <p>Ser la empresa líder en servicios de limpieza en toda la República Dominicana, reconocida por la excelencia, innovación y satisfacción de nuestros clientes.</p>
+      </div>
+      <div class="mvv-item">
+        <h3>Valores</h3>
+        <ul>
+          <li><strong>Responsabilidad:</strong> Cumplimos con nuestros compromisos y horarios.</li>
+          <li><strong>Profesionalismo:</strong> Personal capacitado y dedicado a la excelencia.</li>
+          <li><strong>Compromiso Ambiental:</strong> Utilizamos productos ecológicos y seguros.</li>
+          <li><strong>Calidad:</strong> Atención a cada detalle en nuestros servicios.</li>
+          <li><strong>Integridad:</strong> Honestidad y transparencia en todas nuestras acciones.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <h2>Comentarios de Clientes</h2>
+    <div class="testimonial-container">
+      <div class="testimonial">
+        <p>"Excelente servicio, dejaron mi oficina impecable. Muy profesionales y puntuales."</p>
+        <p class="author">— Ana Pérez</p>
+      </div>
+      <div class="testimonial">
+        <p>"Recomendado 100%. Su limpieza post-evento fue rápida y efectiva."</p>
+        <p class="author">— Carlos Rodríguez</p>
+      </div>
+      <div class="testimonial">
+        <p>"El equipo es muy amable y los resultados superaron mis expectativas."</p>
+        <p class="author">— Mariana Gómez</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COTIZACIÓN -->
   <section class="cotizador" id="cotizacion">
     <h2>Solicita tu Cotización</h2>
     <form id="whatsapp-form">
@@ -184,6 +237,7 @@
 
 </body>
 </html>
+
 
 
 
