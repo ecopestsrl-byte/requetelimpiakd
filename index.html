@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRODUCTOS ECO PEST - Tienda de Equipos y Productos de Fumigación</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f9f9f9; }
+
+/* Header fijo con logo */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: #ffffff;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+}
+header img {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 120px;
+}
+header h1 {
+    margin:0;
+    font-family:'Montserrat', sans-serif;
+    color:#2E7D32;
+    font-size:2rem;
+}
+
+/* Menú debajo del header */
+nav {
+    position: fixed;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    background-color:#66BB6A;
+    text-align:center;
+    z-index:999;
+    padding:10px 0;
+}
+nav a { 
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+nav a:hover { background-color:#2E7D32; }
+
+/* Ajuste del contenido principal */
+.main-content { margin-top:210px; }
+
+/* Banner con partículas */
+.banner { 
+    position:relative; 
+    height:180px;
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    color:#2E7D32; 
+    text-align:center; 
+    background-color:#ffffff;
+    border-bottom: 1px solid #ddd;
+}
+#particles-js { position:absolute; width:100%; height:100%; top:0; left:0; z-index:1; }
+.banner-content { position:relative; z-index:2; }
+.banner-content h2 { font-size:2rem; margin-top:5px; color:#2E7D32; text-shadow:none; }
+
+/* Productos */
+.section-title { text-align:center; margin:40px 0 20px; font-family:'Montserrat', sans-serif; color:#2E7D32; }
+.product-card { border:1px solid #ddd; border-radius:8px; padding:15px; text-align:center; margin-bottom:20px; transition: transform 0.2s; background:white; }
+.product-card:hover { transform:scale(1.05); }
+.product-card img { width:140px; height:140px; object-fit:contain; margin-bottom:10px; }
+
+/* Carrito */
+#cart { position:fixed; top:80px; right:20px; background:white; border:1px solid #ddd; padding:10px; border-radius:8px; width:300px; max-height:400px; overflow-y:auto; display:none; z-index:1000; }
+#cart h5 { margin-top:0; }
+#cart button { margin-top:10px; }
+.filter-btn { margin:5px; }
+
+/* Botón WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    text-decoration: none;
+    border-radius:50%;
+    background-color:#25d366;
+}
+.whatsapp-btn:hover { background-color:#20b954; }
+.whatsapp-btn img { width:35px; height:35px; }
+
+/* Footer */
+footer { background-color:#2E7D32; color:white; text-align:center; padding:20px 0; margin-top:40px; }
+footer a { color:white; margin:0 10px; text-decoration:none; }
+footer a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="IMG/logo1.jpg" alt="Logo ECO PEST">
+    <h1>PRODUCTOS ECO PEST</h1>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#" onclick="toggleCart()">Carrito 🛒 (<span id="cart-count">0</span>)</a>
+</nav>
+
+<div class="main-content">
+
+<!-- Banner -->
+<section class="banner" id="inicio">
+    <div id="particles-js"></div>
+    <div class="banner-content">
+        <h2>Protege tu hogar y negocio con los mejores equipos y productos de fumigación</h2>
+    </div>
+</section>
+
+<!-- Productos -->
+<section id="productos" class="container">
+    <h2 class="section-title">Nuestros Productos</h2>
+    <div class="text-center mb-3">
+        <button class="btn btn-outline-success filter-btn" onclick="filterProducts('todos')">Todos</button>
+        <button class="btn btn-outline-success filter-btn" onclick="filterProducts('Equipos')">Equipos</button>
+        <button class="btn btn-outline-success filter-btn" onclick="filterProducts('Químicos')">Químicos</button>
+        <button class="btn btn-outline-success filter-btn" onclick="filterProducts('Accesorios')">Accesorios</button>
+        <button class="btn btn-outline-success filter-btn" onclick="filterProducts('Cebaderos')">Cebaderos</button>
+    </div>
+    <div class="row" id="product-list"></div>
+</section>
+
+<!-- Nosotros -->
+<section id="nosotros" class="container">
+    <h2 class="section-title">Nosotros</h2>
+    <p>ECO PEST S.R.L es una empresa dedicada a ofrecer productos y equipos de fumigación de alta calidad, con un compromiso con la seguridad y el medio ambiente.</p>
+    
+    <h3>Misión</h3>
+    <p>Ofrecer soluciones efectivas en control de plagas y productos de fumigación, garantizando seguridad, calidad y satisfacción a nuestros clientes.</p>
+    
+    <h3>Visión</h3>
+    <p>Ser la empresa líder en la República Dominicana en la venta de equipos y productos de fumigación, reconocida por su innovación, compromiso ambiental y excelencia en el servicio.</p>
+    
+    <h3>Valores</h3>
+    <ul>
+        <li>Compromiso con la seguridad y el medio ambiente.</li>
+        <li>Calidad en productos y servicios.</li>
+        <li>Responsabilidad y ética profesional.</li>
+        <li>Innovación y mejora continua.</li>
+        <li>Atención y satisfacción al cliente.</li>
+    </ul>
+</section>
+
+<!-- Servicios -->
+<section id="servicios" class="container">
+    <h2 class="section-title">Servicios</h2>
+    <ul>
+        <li>Asesoría y venta de equipos de fumigación.</li>
+        <li>Venta al por mayor y al detalle.</li>
+    </ul>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="container mb-5">
+    <h2 class="section-title">Contacto</h2>
+    <form>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="telefono">
+        </div>
+        <div class="mb-3">
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Enviar Mensaje</button>
+    </form>
+</section>
+
+<!-- Carrito -->
+<div id="cart">
+    <h5>Carrito de Compras</h5>
+    <ul id="cart-items"></ul>
+    <p>Total: $<span id="cart-total">0</span></p>
+    <button class="btn btn-success" onclick="checkout()">Finalizar Compra</button>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 ECO PEST S.R.L | Todos los derechos reservados</p>
+    <p>Tel: +1 809-738-3196 | Email: ecopestsrl@gmail.com</p>
+    <p>Tienda principal: Calle 11 no. 15, Las Antillas Del Cacique, Distrito Nacional</p>
+    <p>Sucursal: Verón, Punta Cana</p>
+    <div style="text-align:center; margin:15px 0;">
+        <a href="https://www.facebook.com/eco.pest.srl/" target="_blank">
+            <img src="IMG/facebook.jpg" alt="Facebook" style="width:35px; height:35px;">
+        </a>
+        <a href="https://www.instagram.com/ecopestsrl/" target="_blank">
+            <img src="IMG/instagram.jpg" alt="Instagram" style="width:35px; height:35px;">
+        </a>
+    </div>
+</footer>
+
+<!-- Botón WhatsApp -->
+<a href="https://wa.me/18097383196" class="whatsapp-btn" target="_blank">
+    <img src="IMG/whatsapp.jpg" alt="WhatsApp">
+</a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 50 },
+    "color": { "value": "#2E7D32" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.5 },
+    "size": { "value": 3 },
+    "line_linked": { "enable": true, "distance": 150, "color": "#2E7D32", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": { "enable": true, "mode": "grab" },
+      "onclick": { "enable": true, "mode": "push" },
+      "resize": true
+    },
+    "modes": {
+      "grab": { "distance": 140, "line_linked": { "opacity": 0.7 } },
+      "push": { "particles_nb": 4 }
+    }
+  },
+  "retina_detect": true
+});
+</script>
+
+<script>
+const products = [
+   {id:1, name:"Pulverizador Manual", category:"Equipos", price:0, img:"IMG/pulverizador.jpg"},
+   {id:2, name:"Nebulizador Eléctrico", category:"Equipos", price:0, img:"IMG/nebulizador.jpg"},
+   {id:3, name:"Insecticida Profesional", category:"Químicos", price:0, img:"IMG/insecticida.jpg"},
+   {id:4, name:"Guantes de Protección", category:"Accesorios", price:0, img:"IMG/guante.jpg"},
+   {id:5, name:"Cebadero Ratones", category:"Cebaderos", price:0, img:"IMG/cebadero.jpg"},
+   {id:6, name:"Trampa Metalica", category:"Cebaderos", price:0, img:"IMG/cebadero2.jpg"},
+   {id:7, name:"Trampa Mecanica", category:"Cebaderos", price:0, img:"IMG/cebadero3.jpg"}
+];
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function displayProducts(list=products){
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = '';
+    list.forEach(product=>{
+        const col = document.createElement('div');
+        col.className='col-md-4';
+        col.innerHTML=`
+        <div class="product-card">
+            <img src="${product.img}" class="img-fluid" alt="${product.name}">
+            <h4>${product.name}</h4>
+            <p><strong>$${product.price}</strong></p>
+            <button class="btn btn-success" onclick="addToCart(${product.id})">Agregar al Carrito</button>
+        </div>`;
+        productList.appendChild(col);
+    });
+}
+
+function filterProducts(category){
+    if(category==='todos') displayProducts();
+    else displayProducts(products.filter(p=>p.category===category));
+}
+
+function addToCart(id){
+    const product = products.find(p=>p.id===id);
+    cart.push(product);
+    saveCart();
+    updateCart();
+}
+
+function updateCart(){
+    const cartItems=document.getElementById('cart-items');
+    cartItems.innerHTML='';
+    let total=0;
+    cart.forEach((item,index)=>{
+        total+=item.price;
+        const li=document.createElement('li');
+        li.textContent=`${item.name} - $${item.price}`;
+        const removeBtn=document.createElement('button');
+        removeBtn.textContent='X';
+        removeBtn.className='btn btn-sm btn-danger ms-2';
+        removeBtn.onclick=()=>{ cart.splice(index,1); saveCart(); updateCart(); };
+        li.appendChild(removeBtn);
+        cartItems.appendChild(li);
+    });
+    document.getElementById('cart-total').textContent=total;
+    document.getElementById('cart-count').textContent=cart.length;
+}
+
+function toggleCart(){
+    const cartDiv=document.getElementById('cart');
+    cartDiv.style.display=cartDiv.style.display==='none'?'block':'none';
+}
+
+function checkout(){
+    if(cart.length===0){ alert("El carrito está vacío"); return; }
+    alert(`Gracias por tu compra. Total: $${cart.reduce((a,b)=>a+b.price,0)}`);
+    cart=[];
+    saveCart();
+    updateCart();
+}
+
+function saveCart(){
+    localStorage.setItem('cart',JSON.stringify(cart));
+}
+
+window.onload=function(){
+    displayProducts();
+    updateCart();
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
