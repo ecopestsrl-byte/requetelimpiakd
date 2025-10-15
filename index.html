@@ -241,7 +241,7 @@ document.getElementById("formCotizacion").addEventListener("submit", function(e)
   <h2>Lo que dicen nuestros clientes</h2>
 
   <div class="testimonial-container" id="testimonialRotador">
-    <div class="testimonial active">
+    <div class="testimonial">
       <p>"Excelente servicio, llegaron puntuales y dejaron todo impecable. ¡Muy recomendados!"</p>
       <p class="author">- María P.</p>
     </div>
@@ -261,44 +261,57 @@ document.getElementById("formCotizacion").addEventListener("submit", function(e)
       <p>"Definitivamente los mejores, mi casa quedó impecable y con un aroma espectacular."</p>
       <p class="author">- Carolina S.</p>
     </div>
+    <div class="testimonial">
+      <p>"Excelente trato y profesionalismo. Cumplieron con todo lo prometido."</p>
+      <p class="author">- Pedro M.</p>
+    </div>
   </div>
 </section>
 
 <script>
-  // --- ROTADOR DE TESTIMONIOS ---
+  // --- Rotador de testimonios (3 visibles a la vez) ---
   const testimonios = document.querySelectorAll("#testimonialRotador .testimonial");
-  let indice = 0;
+  const total = testimonios.length;
+  let inicio = 0;
+  const visibles = 3;
 
-  function cambiarTestimonio() {
-    testimonios[indice].classList.remove("active");
-    indice = (indice + 1) % testimonios.length;
-    testimonios[indice].classList.add("active");
+  function mostrarTestimonios() {
+    testimonios.forEach((t, i) => {
+      t.style.display = "none";
+    });
+    for (let i = 0; i < visibles; i++) {
+      const index = (inicio + i) % total;
+      testimonios[index].style.display = "block";
+    }
   }
 
-  setInterval(cambiarTestimonio, 15000); // cambia cada 15 segundos
+  function siguienteGrupo() {
+    inicio = (inicio + visibles) % total;
+    mostrarTestimonios();
+  }
+
+  mostrarTestimonios(); // primera carga
+  setInterval(siguienteGrupo, 15000); // cambia cada 15 segundos
 </script>
 
 <style>
-  /* Ajuste visual del rotador */
+  /* TESTIMONIOS VISUALES */
   #testimonialRotador {
-    max-width: 700px;
+    max-width: 1000px;
     margin: auto;
-    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    transition: all 0.5s ease;
   }
 
   #testimonialRotador .testimonial {
-    display: none;
     background: #fff;
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: left;
-    transition: opacity 0.6s ease;
-  }
-
-  #testimonialRotador .testimonial.active {
-    display: block;
-    animation: fadeIn 1s ease;
+    animation: fadeIn 0.8s ease;
   }
 
   @keyframes fadeIn {
@@ -316,6 +329,12 @@ document.getElementById("formCotizacion").addEventListener("submit", function(e)
     font-weight: bold;
     color: #0d9def;
     margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    #testimonialRotador {
+      grid-template-columns: 1fr; /* En móvil se ve 1 por vez */
+    }
   }
 </style>
 
@@ -368,6 +387,7 @@ document.getElementById("formCotizacion").addEventListener("submit", function(e)
 
 </body>
 </html>
+
 
 
 
