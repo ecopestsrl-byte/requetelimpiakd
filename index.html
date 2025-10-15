@@ -120,14 +120,14 @@
     </div>
   </section>
   
- <!-- COTIZACIÓN -->
-<section class="cotizador" id="cotizacion">
-  <h2 style="color:#0d9def;">Solicita tu Cotización</h2>
+<!-- COTIZACIÓN -->
+<section class="cotizador" id="cotizacion" style="background-color:#0d9def; padding:80px 20px; text-align:center;">
+  <h2 style="color:white;">Solicita tu Cotización</h2>
   <form id="formCotizacion">
     <input type="text" id="nombre" placeholder="Nombre" required=""><br>
     <input type="email" id="email" placeholder="Correo electrónico" required=""><br>
     <textarea id="mensaje" placeholder="Mensaje" rows="5" required=""></textarea><br>
-    <button type="submit" style="background-color:#ffffff; color:white; border:none; padding:12px 30px; border-radius:25px; cursor:pointer; font-weight:bold; transition:0.3s;">
+    <button type="submit" style="background-color:white; color:#0d9def; border:none; padding:12px 30px; border-radius:25px; cursor:pointer; font-weight:bold; transition:0.3s;">
       Enviar solicitud
     </button>
   </form>
@@ -151,25 +151,6 @@ document.getElementById("formCotizacion").addEventListener("submit", function(e)
 });
 </script>
 
-  document.getElementById("formCotizacion").addEventListener("submit", function(e) {
-    e.preventDefault(); // Evita que se recargue la página
-
-    // Captura los valores
-    const nombre = document.getElementById("nombre").value;
-    const email = document.getElementById("email").value;
-    const mensaje = document.getElementById("mensaje").value;
-
-    // Número de WhatsApp (incluye código país, sin + ni espacios)
-    const numeroWhatsApp = "18095551234";
-
-    // Construye el mensaje
-    const texto = `Hola, mi nombre es ${nombre} (%0ACorreo: ${email})%0AMensaje: ${mensaje}`;
-
-    // Abre WhatsApp con el mensaje
-    window.open(`https://wa.me/${numeroWhatsApp}?text=${texto}`, "_blank");
-  });
-</script>
-  
  <!-- SOBRE NOSOTROS -->
   <section id="nosotros">
     <h2>Sobre Nosotros</h2>
@@ -384,6 +365,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
