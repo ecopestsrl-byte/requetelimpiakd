@@ -1,139 +1,507 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Requetelimpia KD | Servicios de Limpieza Profesional en República Dominicana</title>
-<meta name="description" content="Requetelimpia KD ofrece servicios profesionales de limpieza, desinfección y mantenimiento en hogares y empresas en toda la República Dominicana.">
-<meta name="keywords" content="limpieza profesional, limpieza empresarial, desinfección, mantenimiento, limpieza de alfombras, limpieza de vidrios, República Dominicana, Requetelimpia KD">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Requetelimpia KD — Servicios de Limpieza</title>
+  <meta name="description" content="Requetelimpia KD ofrece servicios de limpieza profesional, desinfección y mantenimiento en toda la República Dominicana.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fb;
+      color: #333;
+    }
+
+/* HEADER — cinta blanca estrecha */
+header {
+  background-color: #ffffff;
+  height: 100px; /* altura fija de la cinta */
+  display: flex;
+  justify-content: flex-end; /* los botones a la derecha */
+  align-items: flex-end; /* alinea los botones abajo */
+  padding: 0 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO — grande y sobre la cinta */
+header img {
+  height: 190px; /* tamaño grande */
+  width: auto;
+  position: absolute;
+  top: -35px; /* sobresale sobre la cinta */
+  left: 30px;
+}
+
+/* NAV — botones más arriba y elegantes */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  align-items: center; /* los centra verticalmente dentro del header */
+  height: 60px; /* misma altura que la cinta */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul li a:hover {
+  background-color: #00bcd4;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+    /* BANNER */
+    .banner {
+      background: url('professional.jpg') center/cover no-repeat;
+      height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .banner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .banner h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .banner p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .banner a {
+      background-color: #00bcd4;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .banner a:hover {
+      background-color: #0097a7;
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 80px 60px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 32px;
+      color: #00bcd4;
+      margin-bottom: 40px;
+    }
+
+    .servicios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .servicio {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      transition: transform 0.3s;
+    }
+
+    .servicio:hover {
+      transform: translateY(-5px);
+    }
+
+    .servicio img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* COTIZACIÓN */
+    .cotizador {
+      background-color: #00bcd4;
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .cotizador input, .cotizador textarea {
+      width: 90%;
+      max-width: 500px;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .cotizador button {
+      background-color: #fff;
+      color: #00bcd4;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cotizador button:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #00bcd4; /* gris oscuro */
+      color: #f0f0f0; /* texto claro */
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer a {
+      color: #00bcd4;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* BOTÓN WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+
+    .whatsapp img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .whatsapp img:hover {
+      transform: scale(1.1);
+    }
+
+    /* MISIÓN, VISIÓN Y VALORES */
+    .mvv-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 20px 0;
+    }
+
+    .mvv-item {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px 20px;
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .mvv-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .mvv-item h3 {
+      color: #00bcd4;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .mvv-item p, .mvv-item ul li {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .mvv-item ul li {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+      }
+      header img {
+        height: 70px;
+        margin-bottom: 10px;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      section {
+        padding: 50px 20px;
+      }
+      .banner h1 {
+        font-size: 32px;
+      }
+      .banner p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="logo.png" alt="Logo Requetelimpia KD">
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#cotizador">Cotización</a></li>
+        <li><a href="#nosotros">Sobre nosotros</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- BANNER -->
+  <section class="banner" id="inicio">
+    <div class="banner-content">
+      <h1>En Requetelimpia KD brillamos por ti</h1>
+      <p>Servicios de limpieza profesional para hogares y empresas</p>
+      <a href="#cotizacion">Solicita tu cotización</a>
+    </div>
+  </section>
+
+ <!-- SERVICIOS -->
+<section id="servicios">
+  <h2>Nuestros Servicios</h2>
+  <div class="servicios">
+    <div class="servicio">
+      <img src="limpieza.jpeg" alt="Limpieza General">
+      <h3>Limpieza General</h3>
+      <p>Limpieza completa de hogares con atención a cada detalle.</p>
+    </div>
+    <div class="servicio">
+      <img src="limpieza 1.jpeg" alt="Limpieza Empresarial">
+      <h3>Limpieza Empresarial</h3>
+      <p>Mantén tu oficina impecable con planes de limpieza profesional.</p>
+    </div>
+    <div class="servicio">
+      <img src="limpieza 3.jpeg" alt="Desinfección Total">
+      <h3>Desinfección Total</h3>
+      <p>Eliminación de virus, bacterias y malos olores con productos certificados.</p>
+    </div>
+    <div class="servicio">
+      <img src="limpieza 4.jpeg" alt="Limpieza de Alfombras y Tapicerías">
+      <h3>Limpieza de Alfombras y Tapicerías</h3>
+      <p>Tratamientos especializados para mantener tus alfombras y muebles limpios y frescos.</p>
+    </div>
+    <div class="servicio">
+      <img src="limpieza 5.jpeg" alt="Limpieza Post-Evento">
+      <h3>Limpieza Post-Evento</h3>
+      <p>Servicio rápido y eficiente para dejar tu espacio como nuevo después de reuniones o fiestas.</p>
+    </div>
+    <div class="servicio">
+      <img src="limpieza 6.jpeg" alt="Limpieza de Vidrios y Fachadas">
+      <h3>Limpieza de Vidrios y Fachadas</h3>
+      <p>Limpieza profesional de ventanas, vitrinas y fachadas exteriores.</p>
+    </div>
+  </div>
+</section>
+
+ <!-- COTIZACIÓN -->
+  <section class="cotizador" id="cotizacion">
+    <h2>Solicita tu Cotización</h2>
+    <form id="whatsapp-form">
+      <input type="text" id="nombre" placeholder="Nombre completo" required><br>
+      <input type="email" id="correo" placeholder="Correo electrónico" required><br>
+      <textarea id="mensaje" rows="4" placeholder="Describe el servicio que necesitas" required></textarea><br>
+      <button type="submit">Enviar solicitud por WhatsApp</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById("whatsapp-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const correo = document.getElementById("correo").value;
+      const mensaje = document.getElementById("mensaje").value;
+      const numeroWhatsApp = "18095551234"; // tu número
+      const texto = `Hola, soy *${nombre}* (%0ACorreo: ${correo})%0AQuisiera este servicio: ${mensaje}`;
+      const url = `https://wa.me/${numeroWhatsApp}?text=${texto}`;
+      window.open(url, "_blank");
+    });
+  </script>
+
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Requetelimpia KD | Servicios de Limpieza Profesional en República Dominicana</title>
+  <meta name="description" content="Requetelimpia KD ofrece servicios profesionales de limpieza, desinfección y mantenimiento en hogares y empresas en toda la República Dominicana.">
+  <meta name="keywords" content="limpieza profesional, limpieza empresarial, desinfección, mantenimiento, limpieza de alfombras, limpieza de vidrios, República Dominicana, Requetelimpia KD">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-  /* GENERAL */
   body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f7f9fb; color: #333; }
 
-  /* HEADER */
+ /* HEADER */
+header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+  align-items: center;
+  padding: 10px 60px; /* Espacio extra a los lados */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO */
+header img {
+  height: 100px; /* tamaño del logo */
+  width: auto;
+}
+
+/* MENÚ */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul li a:hover {
+  background-color: #0d9def;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
   header {
-    background-color: #ffffff;
-    display: flex;
-    justify-content: space-between; /* Logo izquierda, menú derecha */
+    padding: 10px 40px; /* menos espacio lateral */
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Logo arriba, menú abajo */
     align-items: center;
-    padding: 10px 60px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
   }
 
   header img {
-    height: 100px;
-    width: auto;
+    height: 70px;
+    margin-bottom: 10px;
   }
 
   nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-    align-items: center;
+    flex-direction: column; /* Botones en columna */
+    gap: 10px;
+    align-items: center; /* centrado */
+    width: 100%;
   }
 
   nav ul li a {
-    text-decoration: none;
-    color: #000;
-    font-weight: 600;
-    font-size: 15px;
-    padding: 10px 18px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    background-color: transparent;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 90%; /* ocupa casi todo el ancho en móvil */
+    text-align: center;
+    padding: 12px 0;
   }
-
-  nav ul li a:hover {
-    background-color: #0d9def;
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-  }
+}
 
   /* BANNER */
-  .banner {
-    background: url('img/professional.jpg') center/cover no-repeat;
-    height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    position: relative;
-  }
-  .banner::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.4);
-  }
+  .banner { background: url('img/professional.jpg') center/cover no-repeat; height: 700px; display: flex; align-items: center; justify-content: center; color: white; text-align: center; position: relative; }
+  .banner::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); }
   .banner-content { position: relative; z-index: 1; }
   .banner h1 { font-size: 48px; margin-bottom: 10px; }
   .banner p { font-size: 18px; margin-bottom: 20px; }
-  .banner a {
-    background-color: #0d9def;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s;
-  }
+  .banner a { background-color: #0d9def; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: background 0.3s; }
   .banner a:hover { background-color: #0097a7; }
 
   /* SECCIONES */
   section { padding: 80px 60px; text-align: center; }
   section h2 { font-size: 32px; color: #0d9def; margin-bottom: 40px; }
 
-  .servicios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-  }
-
-  .servicio {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    padding: 30px;
-    transition: transform 0.3s;
-  }
+  .servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+  .servicio { background: #fff; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 30px; transition: transform 0.3s; }
   .servicio:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
   .servicio img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
 
-  /* COTIZADOR */
-  .cotizador {
-    background-color: #0d9def;
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-  }
+  /* COTIZACIÓN */
+  .cotizador { background-color: #0d9def; color: white; padding: 80px 20px; text-align: center; }
   .cotizador input, .cotizador textarea { width: 90%; max-width: 500px; padding: 12px; margin: 10px 0; border: none; border-radius: 8px; }
-  .cotizador button {
-    background-color: white;
-    color: #0d9def;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+  .cotizador button { background-color: #fff; color: #0d9def; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s; }
   .cotizador button:hover { background-color: #f0f0f0; }
 
   /* NOSOTROS */
-  #nosotros { background-color: #ffffff; padding: 80px 20px; }
-  #nosotros p { max-width: 800px; margin: auto; line-height: 1.8; font-size: 17px; color: #555; }
+  #nosotros { background-color: #ffffff; text-align: center; padding: 80px 20px; }
+  #nosotros p { max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 17px; color: #555; }
 
   /* MVV */
   .mvv-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 20px 0; }
@@ -151,43 +519,45 @@
 
   /* FOOTER */
   footer { background-color: #0d9def; color: #f0f0f0; text-align: center; padding: 30px 20px; }
-  footer a i { color: #fff; margin: 0 8px; font-size: 20px; transition: color 0.3s; }
-  footer a i:hover { color: #f0f0f0; }
+  footer a { color: #0d9def; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
 
-  /* BOTÓN WHATSAPP */
   .whatsapp { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
   .whatsapp img { width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.3); transition: transform 0.3s; }
   .whatsapp img:hover { transform: scale(1.1); }
 
+  footer a i { color: #fff; margin: 0 8px; font-size: 20px; transition: color 0.3s; }
+  footer a i:hover { color: #f0f0f0; }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: center;
-      padding: 10px 20px;
+    header { 
+      flex-direction: column; 
+      height: auto; 
+      padding: 10px 20px; 
+      align-items: flex-start; 
     }
-    header img { height: 70px; margin-bottom: 15px; }
-    nav ul {
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
-      width: 100%;
-      padding: 0;
+    header img { 
+      margin-bottom: 10px; 
     }
-    nav ul li a {
-      width: 90%;
-      text-align: center;
-      padding: 12px 0;
-      font-size: 16px;
+    nav ul { 
+      flex-direction: column; 
+      width: 100%; 
+      gap: 10px; 
     }
-    section { padding: 50px 20px; }
+    nav ul li a { 
+      width: 100%; 
+      text-align: center; 
+    }
     .banner h1 { font-size: 32px; }
     .banner p { font-size: 16px; }
+    section { padding: 50px 20px; }
   }
 </style>
 </head>
-<body>
 
+<body>
+  
   <!-- HEADER -->
   <header>
     <img src="img/logo.png" alt="Logo Requetelimpia KD">
@@ -223,35 +593,42 @@
       <div class="servicio"><img src="img/limpieza6.jpeg" alt="Limpieza de Vidrios y Fachadas"><h3>Limpieza de Vidrios y Fachadas</h3><p>Limpieza profesional de ventanas, vitrinas y fachadas exteriores.</p></div>
     </div>
   </section>
+  
+<!-- COTIZACIÓN -->
+<section class="cotizador" id="cotizacion" style="background-color:#0d9def; padding:80px 20px; text-align:center;">
+  <h2 style="color:white;">Solicita tu Cotización</h2>
+  <form id="formCotizacion">
+    <input type="text" id="nombre" placeholder="Nombre" required=""><br>
+    <input type="email" id="email" placeholder="Correo electrónico" required=""><br>
+    <textarea id="mensaje" placeholder="Mensaje" rows="5" required=""></textarea><br>
+    <button type="submit" style="background-color:white; color:#0d9def; border:none; padding:12px 30px; border-radius:25px; cursor:pointer; font-weight:bold; transition:0.3s;">
+      Enviar solicitud
+    </button>
+  </form>
+</section>
 
-  <!-- COTIZACIÓN -->
-  <section class="cotizador" id="cotizacion">
-    <h2>Solicita tu Cotización</h2>
-    <form id="formCotizacion">
-      <input type="text" id="nombre" placeholder="Nombre" required><br>
-      <input type="email" id="email" placeholder="Correo electrónico" required><br>
-      <textarea id="mensaje" placeholder="Mensaje" rows="5" required></textarea><br>
-      <button type="submit">Enviar solicitud</button>
-    </form>
-  </section>
+<script>
+document.getElementById("formCotizacion").addEventListener("submit", function(e) {
+  e.preventDefault(); // evita que se recargue la página
+  const nombre = document.getElementById("nombre").value;
+  const email = document.getElementById("email").value;
+  const mensaje = document.getElementById("mensaje").value;
 
-  <!-- SCRIPT WHATSAPP -->
-  <script>
-    document.getElementById("formCotizacion").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const nombre = document.getElementById("nombre").value;
-      const email = document.getElementById("email").value;
-      const mensaje = document.getElementById("mensaje").value;
-      const numeroWhatsApp = "18095551234";
-      const texto = `Hola, mi nombre es ${nombre} (%0ACorreo: ${email})%0A%0AMensaje:%0A${mensaje}`;
-      window.open(`https://wa.me/${numeroWhatsApp}?text=${texto}`, "_blank");
-    });
-  </script>
+  // Número de WhatsApp (coloca tu número con código de país)
+  const numeroWhatsApp = "18095551234";
 
-  <!-- SOBRE NOSOTROS -->
+  // Mensaje formateado
+  const texto = `Hola, mi nombre es ${nombre} (%0ACorreo: ${email})%0A%0AMensaje:%0A${mensaje}`;
+
+  // Redirigir a WhatsApp
+  window.open(`https://wa.me/${numeroWhatsApp}?text=${texto}`, "_blank");
+});
+</script>
+
+ <!-- SOBRE NOSOTROS -->
   <section id="nosotros">
     <h2>Sobre Nosotros</h2>
-    <p>En <strong>Requetelimpia KD</strong> somos una empresa dedicada a ofrecer servicios de limpieza de alta calidad en toda la República Dominicana.  
+    <p style="max-width:700px;margin:auto;">En <strong>Requetelimpia KD</strong> somos una empresa dedicada a ofrecer servicios de limpieza de alta calidad en toda la República Dominicana.  
     Nos caracterizamos por la puntualidad, profesionalismo y atención a cada detalle, garantizando espacios limpios, frescos y saludables.</p>
   </section>
 
@@ -262,26 +639,162 @@
       <div class="mvv-item">
         <i class="fas fa-bullseye fa-3x" style="color:#0d9def;"></i>
         <h3>Misión</h3>
-        <p>Brindar servicios de limpieza, desinfección y mantenimiento de alta calidad...</p>
+        <p>Brindar servicios de limpieza, desinfección y mantenimiento de alta calidad, garantizando espacios limpios, saludables y agradables, mediante un equipo profesional comprometido con la puntualidad, eficiencia y cuidado del medio ambiente.</p>
       </div>
       <div class="mvv-item">
         <i class="fas fa-eye fa-3x" style="color:#0d9def;"></i>
         <h3>Visión</h3>
-        <p>Ser la empresa líder en servicios de limpieza en toda la República Dominicana...</p>
+        <p>Ser la empresa líder en servicios de limpieza en toda la República Dominicana, reconocida por su excelencia, innovación y enfoque en la satisfacción total de nuestros clientes.</p>
       </div>
       <div class="mvv-item">
         <i class="fas fa-hand-holding-heart fa-3x" style="color:#0d9def;"></i>
         <h3>Valores</h3>
-        <ul style="list-style:none; padding:0;">
-          <li><strong>Responsabilidad:</strong> Cumplimos con nuestros compromisos y horarios.</li>
-          <li><strong>Profesionalismo:</strong> Personal capacitado y dedicado a ofrecer un servicio de calidad.</li>
-          <li><strong>Compromiso ambiental:</strong> Productos ecológicos que cuidan el entorno y la salud.</li>
-          <li><strong>Calidad:</strong> Atención a cada detalle, buscando siempre la perfección.</li>
-          <li><strong>Integridad:</strong> Honestidad y transparencia en todas nuestras acciones.</li>
+        <ul style="list-style: none; padding: 0;">
+          <li><strong>Responsabilidad:</strong> Cumplimos con nuestros compromisos y horarios, asegurando confianza y seguridad.</li>
+          <li><strong>Profesionalismo:</strong> Personal capacitado y dedicado a ofrecer un servicio de calidad superior.</li>
+          <li><strong>Compromiso ambiental:</strong> Utilizamos productos ecológicos que cuidan el entorno y la salud de nuestros clientes.</li>
+          <li><strong>Calidad:</strong> Atención a cada detalle, buscando siempre la perfección en nuestros servicios.</li>
+          <li><strong>Integridad:</strong> Honestidad y transparencia en todas nuestras acciones y relaciones.</li>
         </ul>
       </div>
     </div>
   </section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" style="padding:80px 20px; background:#f0f4f8; text-align:center;">
+  <h2 style="color:#0d9def; font-size:32px; margin-bottom:40px;">Lo que dicen nuestros clientes</h2>
+  <div id="testimonial-container" style="max-width:900px; margin:auto; display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;">
+    <div class="testimonial" style="background:#fff; padding:20px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <p class="testimonial-text" style="font-size:16px; color:#555; line-height:1.6;">"Excelente servicio, llegaron puntuales y dejaron todo impecable. ¡Muy recomendados!"</p>
+      <p class="testimonial-author" style="font-weight:bold; color:#0d9def;">- María P.</p>
+    </div>
+    <div class="testimonial" style="background:#fff; padding:20px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <p class="testimonial-text" style="font-size:16px; color:#555; line-height:1.6;">"Profesionales, atentos y con productos ecológicos. Mi oficina nunca estuvo tan limpia."</p>
+      <p class="testimonial-author" style="font-weight:bold; color:#0d9def;">- Carlos R.</p>
+    </div>
+    <div class="testimonial" style="background:#fff; padding:20px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <p class="testimonial-text" style="font-size:16px; color:#555; line-height:1.6;">"La desinfección fue perfecta, todo quedó seguro y fresco. Volveré a contratarlos seguro."</p>
+      <p class="testimonial-author" style="font-weight:bold; color:#0d9def;">- Ana L.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const testimonialGroups = [
+    [
+      { text: "Excelente servicio, llegaron puntuales y dejaron todo impecable. ¡Muy recomendados!", author: "María P." },
+      { text: "Profesionales, atentos y con productos ecológicos. Mi oficina nunca estuvo tan limpia.", author: "Carlos R." },
+      { text: "La desinfección fue perfecta, todo quedó seguro y fresco. Volveré a contratarlos seguro.", author: "Ana L." }
+    ],
+    [
+      { text: "Muy confiables y amables. Recomendados al 100%", author: "Luis M." },
+      { text: "Limpieza rápida y efectiva, mi hogar nunca estuvo tan reluciente.", author: "Sofía G." },
+      { text: "Gran atención al cliente y puntualidad impecable.", author: "Jorge F." }
+    ],
+    [
+      { text: "El equipo fue muy profesional y cuidadoso con mis muebles.", author: "Isabel R." },
+      { text: "Servicio de desinfección excelente, quedamos muy satisfechos.", author: "Pedro T." },
+      { text: "Los productos ecológicos me encantaron, seguros para mi familia.", author: "Ana C." }
+    ]
+  ];
+
+  let currentGroup = 0;
+  const container = document.getElementById("testimonial-container");
+  const testimonials = container.querySelectorAll(".testimonial");
+
+  setInterval(() => {
+    currentGroup = (currentGroup + 1) % testimonialGroups.length;
+    testimonials.forEach((el, index) => {
+      el.querySelector(".testimonial-text").style.opacity = 0;
+      el.querySelector(".testimonial-author").style.opacity = 0;
+
+      setTimeout(() => {
+        el.querySelector(".testimonial-text").textContent = testimonialGroups[currentGroup][index].text;
+        el.querySelector(".testimonial-author").textContent = `- ${testimonialGroups[currentGroup][index].author}`;
+        el.querySelector(".testimonial-text").style.opacity = 1;
+        el.querySelector(".testimonial-author").style.opacity = 1;
+      }, 500);
+    });
+  }, 10000); // cambia cada 20 segundos
+});
+</script>
+
+  <!-- BENEFICIOS -->
+  <section id="beneficios">
+    <h2>¿Por qué elegirnos?</h2>
+    <div class="servicios">
+      <div class="servicio">
+        <i class="fa fa-shield-alt fa-3x" style="color:#0d9def;"></i>
+        <h3>Seguridad</h3>
+        <p>Productos certificados y personal capacitado para tu tranquilidad.</p>
+      </div>
+      <div class="servicio">
+        <i class="fa fa-clock fa-3x" style="color:#0d9def;"></i>
+        <h3>Puntualidad</h3>
+        <p>Nos adaptamos a tu horario para no interrumpir tu rutina.</p>
+      </div>
+      <div class="servicio">
+        <i class="fa fa-leaf fa-3x" style="color:#0d9def;"></i>
+        <h3>Ecológicos</h3>
+        <p>Productos amigables con el medio ambiente y seguros para tu familia.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <h2>Galería de trabajos</h2>
+  <div class="servicios">
+    <div class="servicio"><img src="img/limpieza.jpeg" alt="Trabajo realizado 1"></div>
+    <div class="servicio"><img src="img/limpieza1.jpeg" alt="Trabajo realizado 2"></div>
+    <div class="servicio"><img src="img/limpieza3.jpeg" alt="Trabajo realizado 3"></div>
+    <div class="servicio"><img src="img/limpieza4.jpeg" alt="Trabajo realizado 4"></div>
+    <div class="servicio"><img src="img/limpieza5.jpeg" alt="Trabajo realizado 5"></div>
+    <div class="servicio"><img src="img/limpieza6.jpeg" alt="Trabajo realizado 6"></div>
+  </div>
+</section>
+
+<style>
+/* Estilo mejorado para galería */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px 0;
+}
+
+.galeria-item {
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.1);
+}
+
+.galeria-item:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Servicios hover mejorado */
+.servicio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+</style>
+</section>
 
   <!-- CONTACTO -->
   <section id="contacto">
@@ -291,21 +804,39 @@
     <p><i class="fa fa-map-marker-alt"></i> Santo Domingo, República Dominicana</p>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Requetelimpia KD — Todos los derechos reservados.</p>
-    <p>Síguenos en 
-      <a href="#"><i class="fab fa-facebook"></i></a> 
-      <a href="#"><i class="fab fa-instagram"></i></a> 
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
-    </p>
-    <p style="margin-top:10px; font-size:0.9rem; color:#FFFFFF;">Diseñado por <strong>💻 Soluciones CodeWave</strong></p>
-  </footer>
+ <!-- FOOTER -->
+<footer>
+  <p>© 2025 Requetelimpia KD — Todos los derechos reservados.</p>
+  <p>Síguenos en 
+    <a href="https://www.facebook.com/tuPerfil" target="_blank"><i class="fab fa-facebook"></i></a> 
+    <a href="https://www.instagram.com/tuPerfil" target="_blank"><i class="fab fa-instagram"></i></a> 
+    <a href="https://wa.me/tuNumero" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </p>
+  <!-- FIRMA -->
+  <p style="margin-top:10px; font-size:0.9rem; color:#FFFFFF;">
+    Diseñado por <strong>💻 Soluciones CodeWave</strong>
+  </p>
+</footer>
+
+<!-- CSS adicional para los íconos -->
+<style>
+  footer a i {
+    color: #fff; /* Íconos en blanco */
+    margin: 0 8px; /* espacio entre íconos */
+    font-size: 20px;
+    transition: color 0.3s;
+  }
+
+  footer a i:hover {
+    color: #f0f0f0; /* color al pasar el mouse */
+  }
+</style>
 
   <!-- BOTÓN WHATSAPP -->
   <a href="https://wa.me/18095551234" target="_blank" class="whatsapp">
-    <img src="img/whatsapp.png" alt="Contactar por WhatsApp">
-  </a>
+  <img src="img/whatsapp.png" alt="Contactar por WhatsApp">
+</a>
+  
 </body>
 </html>
 
