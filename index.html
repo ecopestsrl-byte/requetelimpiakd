@@ -12,26 +12,27 @@
 <style>
   body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f7f9fb; color: #333; }
 
- /* HEADER */
+/* HEADER GENERAL */
 header {
   background-color: #ffffff;
   display: flex;
-  justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+  justify-content: flex-end;
   align-items: center;
-  padding: 10px 60px; /* Espacio extra a los lados */
+  padding: 0 30px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* LOGO */
 header img {
-  height: 100px; /* tamaño del logo */
+  height: 115px;
   width: auto;
+  position: absolute;
+  top: -10px;
+  left: 30px;
 }
 
-/* MENÚ */
 nav ul {
   list-style: none;
   display: flex;
@@ -60,15 +61,7 @@ nav ul li a:hover {
   transform: translateY(-2px);
 }
 
-/* RESPONSIVE */
-
-/* Tablets y pantallas medianas */
-@media (max-width: 1024px) {
-  header {
-    padding: 10px 40px; /* menos espacio lateral */
-  }
-}
-
+/* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -80,29 +73,27 @@ nav ul li a:hover {
   header img {
     height: 70px;
     margin-bottom: 10px;
-    position: static; /* Logo estático en su lugar */
+    position: static;
   }
 
   nav ul {
-    display: flex;
-    flex-direction: row;       /* Botones en fila horizontal */
-    justify-content: center;   /* Centrado debajo del logo */
+    flex-direction: row;        /* fila horizontal */
+    justify-content: center;
     gap: 10px;
     width: 100%;
-    overflow-x: auto;          /* Scroll horizontal si no caben */
+    overflow-x: auto;           /* scroll si no caben */
     padding: 0;
     margin: 0;
-    -webkit-overflow-scrolling: touch; /* suaviza el scroll en móviles */
   }
 
   nav ul li {
-    flex: 0 0 auto;           /* evita que los botones se estiren */
+    flex: 0 0 auto;            /* que los botones no se estiren */
   }
 
   nav ul li a {
-    padding: 10px 15px;
+    white-space: nowrap;       /* evita que el texto se divida */
+    padding: 10px 12px;
     font-size: 14px;
-    white-space: nowrap;      /* evita que se rompa el texto */
     display: block;
     text-align: center;
   }
@@ -472,6 +463,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
