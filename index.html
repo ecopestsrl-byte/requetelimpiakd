@@ -239,12 +239,85 @@ document.getElementById("formCotizacion").addEventListener("submit", function(e)
 <!-- TESTIMONIOS -->
 <section id="testimonios" style="background:#f0f4f8;">
   <h2>Lo que dicen nuestros clientes</h2>
-  <div class="testimonial-container">
-    <div class="testimonial"><p>"Excelente servicio, llegaron puntuales y dejaron todo impecable. ¡Muy recomendados!"</p><p class="author">- María P.</p></div>
-    <div class="testimonial"><p>"Profesionales, atentos y con productos ecológicos. Mi oficina nunca estuvo tan limpia."</p><p class="author">- Carlos R.</p></div>
-    <div class="testimonial"><p>"La desinfección fue perfecta, todo quedó seguro y fresco. Volveré a contratarlos seguro."</p><p class="author">- Ana L.</p></div>
+
+  <div class="testimonial-container" id="testimonialRotador">
+    <div class="testimonial active">
+      <p>"Excelente servicio, llegaron puntuales y dejaron todo impecable. ¡Muy recomendados!"</p>
+      <p class="author">- María P.</p>
+    </div>
+    <div class="testimonial">
+      <p>"Profesionales, atentos y con productos ecológicos. Mi oficina nunca estuvo tan limpia."</p>
+      <p class="author">- Carlos R.</p>
+    </div>
+    <div class="testimonial">
+      <p>"La desinfección fue perfecta, todo quedó seguro y fresco. Volveré a contratarlos seguro."</p>
+      <p class="author">- Ana L.</p>
+    </div>
+    <div class="testimonial">
+      <p>"Muy buena atención y resultados. El equipo fue amable y eficiente en todo momento."</p>
+      <p class="author">- Luis G.</p>
+    </div>
+    <div class="testimonial">
+      <p>"Definitivamente los mejores, mi casa quedó impecable y con un aroma espectacular."</p>
+      <p class="author">- Carolina S.</p>
+    </div>
   </div>
 </section>
+
+<script>
+  // --- ROTADOR DE TESTIMONIOS ---
+  const testimonios = document.querySelectorAll("#testimonialRotador .testimonial");
+  let indice = 0;
+
+  function cambiarTestimonio() {
+    testimonios[indice].classList.remove("active");
+    indice = (indice + 1) % testimonios.length;
+    testimonios[indice].classList.add("active");
+  }
+
+  setInterval(cambiarTestimonio, 15000); // cambia cada 15 segundos
+</script>
+
+<style>
+  /* Ajuste visual del rotador */
+  #testimonialRotador {
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+  }
+
+  #testimonialRotador .testimonial {
+    display: none;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+    transition: opacity 0.6s ease;
+  }
+
+  #testimonialRotador .testimonial.active {
+    display: block;
+    animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  #testimonialRotador .testimonial p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  #testimonialRotador .testimonial .author {
+    font-weight: bold;
+    color: #0d9def;
+    margin-top: 10px;
+  }
+</style>
 
 <!-- BENEFICIOS -->
 <section id="beneficios">
@@ -295,6 +368,7 @@ document.getElementById("formCotizacion").addEventListener("submit", function(e)
 
 </body>
 </html>
+
 
 
 
