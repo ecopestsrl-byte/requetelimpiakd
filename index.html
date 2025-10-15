@@ -122,16 +122,35 @@
   
  <!-- COTIZACIÓN -->
 <section class="cotizador" id="cotizacion">
-  <h2>Solicita tu Cotización</h2>
+  <h2 style="color:#0d9def;">Solicita tu Cotización</h2>
   <form id="formCotizacion">
-    <input type="text" id="nombre" placeholder="Nombre" required><br>
-    <input type="email" id="email" placeholder="Correo electrónico" required><br>
-    <textarea id="mensaje" placeholder="Mensaje" rows="5" required></textarea><br>
-    <button type="submit">Enviar solicitud</button>
+    <input type="text" id="nombre" placeholder="Nombre" required=""><br>
+    <input type="email" id="email" placeholder="Correo electrónico" required=""><br>
+    <textarea id="mensaje" placeholder="Mensaje" rows="5" required=""></textarea><br>
+    <button type="submit" style="background-color:#0d9def; color:white; border:none; padding:12px 30px; border-radius:25px; cursor:pointer; font-weight:bold; transition:0.3s;">
+      Enviar solicitud
+    </button>
   </form>
 </section>
 
 <script>
+document.getElementById("formCotizacion").addEventListener("submit", function(e) {
+  e.preventDefault(); // evita que se recargue la página
+  const nombre = document.getElementById("nombre").value;
+  const email = document.getElementById("email").value;
+  const mensaje = document.getElementById("mensaje").value;
+
+  // Número de WhatsApp (coloca tu número con código de país)
+  const numeroWhatsApp = "18095551234";
+
+  // Mensaje formateado
+  const texto = `Hola, mi nombre es ${nombre} (%0ACorreo: ${email})%0A%0AMensaje:%0A${mensaje}`;
+
+  // Redirigir a WhatsApp
+  window.open(`https://wa.me/${numeroWhatsApp}?text=${texto}`, "_blank");
+});
+</script>
+
   document.getElementById("formCotizacion").addEventListener("submit", function(e) {
     e.preventDefault(); // Evita que se recargue la página
 
@@ -365,6 +384,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
