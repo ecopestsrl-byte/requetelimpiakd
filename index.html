@@ -72,22 +72,36 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      header { flex-direction: column; height: auto; padding: 10px; }
-      header img { height: 70px; margin-bottom: 10px; }
-      nav ul { flex-direction: column; gap: 10px; align-items: center; }
-      nav ul li a { font-size: 16px; padding: 10px 15px; width: 90%; text-align: center; }
-
-      .banner { height: 400px; }
-      .banner h1 { font-size: 28px; }
-      .banner p { font-size: 14px; }
-      .banner a { padding: 10px 20px; font-size: 14px; }
-
-      section { padding: 40px 20px; }
-      .servicios, .mvv-container, #testimonial-container, .galeria-grid { grid-template-columns: 1fr !important; gap: 20px; }
-
-      .cotizador input, .cotizador textarea { width: 95%; max-width: 100%; }
-      .cotizador button { width: 95%; max-width: 100%; padding: 12px 0; }
-      footer { font-size: 14px; }
+      header { 
+        flex-direction: column; 
+        height: auto; 
+        padding: 10px; 
+      }
+      header img { 
+        height: 70px; 
+        margin-bottom: 10px; 
+      }
+      nav ul { 
+        flex-direction: column; 
+        gap: 10px; 
+        align-items: center; 
+        width: 100%; 
+      }
+      nav ul li { 
+        width: 100%; 
+        text-align: center; 
+      }
+      nav ul li a { 
+        display: block;
+        width: 90%;
+        padding: 12px 0;
+        font-size: 16px;
+        margin: 5px auto;
+        border-radius: 25px;
+      }
+      section { padding: 50px 20px; }
+      .banner h1 { font-size: 32px; }
+      .banner p { font-size: 16px; }
     }
   </style>
 </head>
@@ -375,6 +389,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
