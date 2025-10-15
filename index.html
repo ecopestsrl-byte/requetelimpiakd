@@ -69,11 +69,11 @@ nav ul li a:hover {
   }
 }
 
-/* Móviles */
 @media (max-width: 768px) {
   header {
-    flex-direction: column; /* Logo arriba, menú abajo */
+    flex-direction: column;
     align-items: center;
+    padding: 10px 20px;
   }
 
   header img {
@@ -82,16 +82,19 @@ nav ul li a:hover {
   }
 
   nav ul {
-    flex-direction: column; /* Botones en columna */
+    flex-direction: row;      /* <-- Cambiado a fila */
+    justify-content: center;  /* Centrar los botones */
+    flex-wrap: wrap;          /* Permite que los botones bajen a la siguiente línea si no caben */
     gap: 10px;
-    align-items: center; /* centrado */
     width: 100%;
+    padding: 0;
   }
 
   nav ul li a {
-    width: 90%; /* ocupa casi todo el ancho en móvil */
+    padding: 10px 12px;
+    font-size: 15px;
     text-align: center;
-    padding: 12px 0;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   }
 }
 
@@ -459,6 +462,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
