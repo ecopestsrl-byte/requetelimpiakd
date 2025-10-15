@@ -44,34 +44,37 @@ nav ul li a:hover { background-color: #0d9def; color: #fff; box-shadow: 0 4px 10
 /* BANNER */
 .banner {
   background: url('img/professional.jpg') center center / contain no-repeat;
-  background-color: #ffffff; /* color de fondo detrás de la imagen */
+  background-color: #ffffff; /* fondo blanco detrás de la imagen */
   height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #333; /* color del texto */
   text-align: center;
   position: relative;
 }
+
 .banner::before {
   content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4); /* oscurece la imagen para resaltar el texto */
+  /* eliminamos la superposición oscura */
 }
+
 .banner-content {
   position: relative;
   z-index: 1;
   max-width: 90%;
 }
+
 .banner h1 {
   font-size: 48px;
   margin-bottom: 10px;
 }
+
 .banner p {
   font-size: 18px;
   margin-bottom: 20px;
 }
+
 .banner a {
   background-color: #0d9def;
   color: white;
@@ -81,9 +84,16 @@ nav ul li a:hover { background-color: #0d9def; color: #fff; box-shadow: 0 4px 10
   font-weight: 600;
   transition: background 0.3s, transform 0.3s;
 }
+
 .banner a:hover {
   background-color: #0097a7;
   transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .banner h1 { font-size: 32px; }
+  .banner p { font-size: 16px; }
 }
   
 /* SECCIONES */
@@ -423,6 +433,7 @@ document.getElementById("formCotizacion").addEventListener("submit", function(e)
 
 </body>
 </html>
+
 
 
 
