@@ -71,38 +71,36 @@
     .whatsapp img:hover { transform: scale(1.1); }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      header { 
-        flex-direction: column; 
-        height: auto; 
-        padding: 10px; 
-      }
-      header img { 
-        height: 70px; 
-        margin-bottom: 10px; 
-      }
-      nav ul { 
-        flex-direction: column; 
-        gap: 10px; 
-        align-items: center; 
-        width: 100%; 
-      }
-      nav ul li { 
-        width: 100%; 
-        text-align: center; 
-      }
-      nav ul li a { 
-        display: block;
-        width: 90%;
-        padding: 12px 0;
-        font-size: 16px;
-        margin: 5px auto;
-        border-radius: 25px;
-      }
-      section { padding: 50px 20px; }
-      .banner h1 { font-size: 32px; }
-      .banner p { font-size: 16px; }
-    }
+   @media (max-width: 768px) {
+  header { 
+    flex-direction: row; /* mantener horizontal */
+    height: 80px; 
+    padding: 10px 20px; 
+    align-items: center;
+  }
+  header img { 
+    height: 60px; 
+    margin: 0 20px 0 0; /* espacio a la derecha del logo */
+    position: relative; /* quitar absolute para que no se superponga */
+    top: 0;
+    left: 0;
+  }
+  nav ul { 
+    flex-direction: row; /* mantener horizontal */
+    gap: 10px; 
+    justify-content: flex-end;
+    width: auto;
+  }
+  nav ul li { 
+    width: auto; 
+  }
+  nav ul li a { 
+    display: block;
+    padding: 8px 12px; 
+    font-size: 14px;
+    border-radius: 20px;
+  }
+}
   </style>
 </head>
 
@@ -389,6 +387,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
