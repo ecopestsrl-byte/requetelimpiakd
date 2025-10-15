@@ -62,21 +62,32 @@ nav ul li a:hover {
 
 /* RESPONSIVE PARA MOVIL */
 @media (max-width: 768px) {
-  header {
-    flex-direction: row; /* sigue horizontal */
+  header { 
+    flex-direction: row; /* mantener horizontal */
     justify-content: space-between; /* logo izquierda, botones derecha */
+    align-items: center;
     padding: 10px 20px;
+    height: auto;
   }
 
-  nav ul {
-    gap: 10px; /* menos espacio para que quepan */
-    flex-wrap: nowrap; /* mantener todos en una línea */
+  header img { 
+    margin: 0; /* quitar margen inferior */
+    height: 60px; /* ajustar si quieres más pequeño en móvil */
+  }
+
+  nav ul { 
+    flex-direction: row; /* siempre horizontal */
+    gap: 10px; 
     overflow-x: auto; /* permite deslizar si no caben */
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
   }
 
-  nav ul li a {
-    font-size: 14px; /* ligeramente más pequeño para móviles */
+  nav ul li a { 
+    font-size: 14px; 
     padding: 8px 12px;
+    white-space: nowrap; /* que no se dividan */
   }
 }
 
@@ -444,6 +455,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
