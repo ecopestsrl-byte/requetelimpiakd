@@ -12,53 +12,85 @@
 <style>
   body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f7f9fb; color: #333; }
 
-  /* HEADER PC */
-  header { 
-    background-color: #ffffff; 
-    display: flex; 
-    justify-content: flex-start; 
-    align-items: center; 
-    padding: 0 30px; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-    position: sticky; 
-    top: 0; 
-    z-index: 1000; 
-    height: 100px;
+  /* HEADER */
+header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+  align-items: center;
+  padding: 10px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO */
+header img {
+  height: 100px; /* tamaño del logo */
+  width: auto;
+}
+
+/* MENÚ */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul li a:hover {
+  background-color: #0d9def;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  header {
+    padding: 10px 20px;
   }
-  header img { 
-    height: 80px; 
-    width: auto; 
-    margin-right: 40px; 
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Logo arriba, menú abajo */
+    align-items: center;
   }
 
-  nav ul { 
-    list-style: none; 
-    display: flex; 
-    gap: 20px; 
-    margin: 100; 
-    padding: 0; 
-    align-items: center; 
-    flex-wrap: wrap;
+  header img {
+    height: 70px;
+    margin-bottom: 10px;
   }
 
-  nav ul li a { 
-    text-decoration: none; 
-    color: #000; 
-    font-weight: 600; 
-    font-size: 16px; 
-    padding: 10px 18px; 
-    border-radius: 20px; 
-    transition: all 0.3s ease; 
-    background-color: transparent; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  nav ul {
+    flex-direction: column; /* Botones en columna */
+    gap: 10px;
+    align-items: center; /* centrado */
+    width: 100%;
   }
 
-  nav ul li a:hover { 
-    background-color: #0d9def; 
-    color: #fff; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
-    transform: translateY(-2px); 
+  nav ul li a {
+    width: 90%; /* ocupa casi todo el ancho en móvil */
+    text-align: center;
+    padding: 12px 0;
   }
+}
 
   /* BANNER */
   .banner { background: url('img/professional.jpg') center/cover no-repeat; height: 700px; display: flex; align-items: center; justify-content: center; color: white; text-align: center; position: relative; }
@@ -424,6 +456,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
