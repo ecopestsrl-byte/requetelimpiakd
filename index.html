@@ -43,26 +43,26 @@ nav ul li a:hover { background-color: #0d9def; color: #fff; box-shadow: 0 4px 10
 
 /* BANNER */
 .banner {
-  background: url('img/professional.jpg') center center / contain no-repeat;
-  background-color: #ffffff; /* fondo blanco detrás de la imagen */
+  background: url('img/professional.jpg') center/cover no-repeat; /* imagen cubre todo el banner */
   height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #333; /* color del texto */
+  color: white; /* color del texto */
   text-align: center;
   position: relative;
 }
 
 .banner::before {
   content: "";
-  /* eliminamos la superposición oscura */
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); /* capa gris semi-transparente para resaltar el texto */
 }
 
 .banner-content {
   position: relative;
-  z-index: 1;
-  max-width: 90%;
+  z-index: 1; /* asegura que el contenido esté sobre la capa gris */
 }
 
 .banner h1 {
@@ -433,6 +433,7 @@ document.getElementById("formCotizacion").addEventListener("submit", function(e)
 
 </body>
 </html>
+
 
 
 
