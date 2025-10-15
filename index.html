@@ -16,9 +16,9 @@
 header {
   background-color: #ffffff;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;  /* para que logo y botones estén uno encima del otro */
   align-items: center;
-  padding: 0 30px;
+  padding: 10px 30px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
@@ -26,20 +26,25 @@ header {
 }
 
 header img {
-  height: 115px;
+  height: 80px;
   width: auto;
-  position: absolute;
-  top: -10px;
-  left: 30px;
+  margin-bottom: 10px; /* espacio entre logo y botones */
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  flex-direction: row; /* horizontal */
+  gap: 15px;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap; /* que se ajuste si no caben */
   margin: 0;
   padding: 0;
-  align-items: center;
+}
+
+nav ul li {
+  flex: 0 0 auto; /* evita que los botones se estiren */
 }
 
 nav ul li a {
@@ -52,6 +57,7 @@ nav ul li a {
   transition: all 0.3s ease;
   background-color: transparent;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  white-space: nowrap; /* evita que el texto se divida */
 }
 
 nav ul li a:hover {
@@ -61,41 +67,26 @@ nav ul li a:hover {
   transform: translateY(-2px);
 }
 
-/* RESPONSIVE MÓVIL */
-@media (max-width: 768px) {
+/* RESPONSIVE */
+@media (min-width: 769px) {
   header {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    padding: 10px 20px;
+    flex-direction: row;  /* logo a la izquierda, botones a la derecha */
+    justify-content: flex-end;
+    height: 100px;
   }
 
   header img {
-    height: 70px;
-    margin-bottom: 10px;
-    position: static;
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    height: 115px;
+    margin-bottom: 0;
   }
 
   nav ul {
-    flex-direction: row;        /* fila horizontal */
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    overflow-x: auto;           /* scroll si no caben */
-    padding: 0;
-    margin: 0;
-  }
-
-  nav ul li {
-    flex: 0 0 auto;            /* que los botones no se estiren */
-  }
-
-  nav ul li a {
-    white-space: nowrap;       /* evita que el texto se divida */
-    padding: 10px 12px;
-    font-size: 14px;
-    display: block;
-    text-align: center;
+    flex-direction: row;
+    gap: 20px;
+    width: auto;
   }
 }
 
@@ -463,6 +454,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
