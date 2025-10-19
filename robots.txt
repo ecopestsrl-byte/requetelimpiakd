@@ -1,0 +1,14 @@
+# robots.txt para Requetelimpia KD
+# Última actualización: 18-10-2025
+# Indica a los motores de búsqueda qué pueden rastrear y dónde está el sitemap
+
+User-agent: *
+Allow: /
+
+# Evita indexar archivos o carpetas innecesarias
+Disallow: /img/
+Disallow: /tmp/
+Disallow: /private/
+
+# Enlace al sitemap
+Sitemap: https://www.requetelimpiakd.com/sitemap.xml
