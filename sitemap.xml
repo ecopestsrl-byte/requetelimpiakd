@@ -9,7 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Secciones internas ahora como páginas independientes (opcionalmente) -->
+  <!-- Página de contacto -->
   <url>
     <loc>https://www.requetelimpiakd.com/contacto</loc>
     <lastmod>2025-10-19</lastmod>
@@ -17,7 +17,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Servicios específicos -->
+  <!-- Secciones de servicios -->
   <url>
     <loc>https://www.requetelimpiakd.com/servicios/limpieza-hogar</loc>
     <lastmod>2025-10-19</lastmod>
@@ -49,7 +49,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog y páginas informativas -->
+  <!-- Blog y páginas legales -->
   <url>
     <loc>https://www.requetelimpiakd.com/blog</loc>
     <lastmod>2025-10-19</lastmod>
@@ -70,3 +70,5 @@
   </url>
 
 </urlset>
+
+
