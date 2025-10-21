@@ -1,8 +1,22 @@
-<url>
-  <loc>https://www.requetelimpia.com/servicios</loc>
-  <lastmod>2025-10-21</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.9</priority>
-</url>
+# Bloquea rastreo de carpetas innecesarias
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /wp-admin/
 
+# Permite todo lo demás
+Allow: /
 
+# Indica la ubicación del sitemap
+Sitemap: https://www.requetelimpia.com/sitemap.xml
+
+# Recomendado: Googlebot específicamente
+User-agent: Googlebot
+Allow: /
+
+# Otros bots comunes
+User-agent: Bingbot
+Allow: /
+User-agent: Slurp
+Allow: /
