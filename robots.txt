@@ -1,22 +1,5 @@
-# Bloquea rastreo de carpetas innecesarias
 User-agent: *
-Disallow: /admin/
 Disallow: /private/
-Disallow: /temp/
-Disallow: /wp-admin/
-
-# Permite todo lo demás
 Allow: /
 
-# Indica la ubicación del sitemap
-Sitemap: https://www.requetelimpia.com/sitemap.xml
-
-# Recomendado: Googlebot específicamente
-User-agent: Googlebot
-Allow: /
-
-# Otros bots comunes
-User-agent: Bingbot
-Allow: /
-User-agent: Slurp
-Allow: /
+Sitemap: https://www.requetelimpiakd.com/sitemap.xml
